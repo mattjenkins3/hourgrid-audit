@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hourgrid-audit"
+version = "0.1.0"
+description = "Strict, read-only audits of 8760/8784 energy CSV timebases, DST folds, and hourly coverage"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [{name = "Impact OS"}]
+keywords = ["8760", "energy", "time-series", "dst", "data-quality"]
+classifiers = ["Programming Language :: Python :: 3", "License :: OSI Approved :: MIT License"]
+
+[project.scripts]
+hourgrid-audit = "hourgrid_audit.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
