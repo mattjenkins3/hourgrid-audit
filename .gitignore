@@ -5,3 +5,10 @@ __pycache__/
 .venv/
 build/
 dist/
+
+# Chat-only reports and handoff notes
+LINKEDIN_DRAFT.md
+LEDGER_UPDATE.md
+CODEX_TASK.md
+*_[Dd][Rr][Aa][Ff][Tt].md
+*_[Hh][Aa][Nn][Dd][Oo][Ff][Ff].md
