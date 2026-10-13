@@ -1,0 +1,40 @@
+name: Unit tests and reproducible example
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.10', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: python -m pip install -e .
+      - run: python -m unittest discover -s tests -v
+      - name: Demonstrate expected synthetic failure without masking unexpected exit codes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python examples/make_example.py
+          status=0
+          hourgrid-audit examples/synthetic_2025.csv \
+            --year 2025 --basis fixed --offset-hours -7 \
+            --value-column power_kw \
+            --report examples/example-report.json \
+            --svg examples/example-coverage.svg || status=$?
+          test "$status" -eq 1
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r = json.loads(Path('examples/example-report.json').read_text())
+          assert r['issue_counts'] == {'duplicate_hour': 1, 'missing_hour': 2}
+          assert r['observed_unique_hours'] == 8758
+          PY

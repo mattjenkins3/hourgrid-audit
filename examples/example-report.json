@@ -1,0 +1,116 @@
+{
+  "basis": "fixed",
+  "coverage_percent": 99.97717,
+  "expected_hours": 8760,
+  "fold_column": null,
+  "issue_counts": {
+    "duplicate_hour": 1,
+    "missing_hour": 2
+  },
+  "label": "beginning",
+  "months": [
+    {
+      "expected": 744,
+      "missing": 0,
+      "month": "Jan",
+      "observed": 744
+    },
+    {
+      "expected": 672,
+      "missing": 0,
+      "month": "Feb",
+      "observed": 672
+    },
+    {
+      "expected": 744,
+      "missing": 1,
+      "month": "Mar",
+      "observed": 743
+    },
+    {
+      "expected": 720,
+      "missing": 0,
+      "month": "Apr",
+      "observed": 720
+    },
+    {
+      "expected": 744,
+      "missing": 0,
+      "month": "May",
+      "observed": 744
+    },
+    {
+      "expected": 720,
+      "missing": 0,
+      "month": "Jun",
+      "observed": 720
+    },
+    {
+      "expected": 744,
+      "missing": 0,
+      "month": "Jul",
+      "observed": 744
+    },
+    {
+      "expected": 744,
+      "missing": 0,
+      "month": "Aug",
+      "observed": 744
+    },
+    {
+      "expected": 720,
+      "missing": 0,
+      "month": "Sep",
+      "observed": 720
+    },
+    {
+      "expected": 744,
+      "missing": 0,
+      "month": "Oct",
+      "observed": 744
+    },
+    {
+      "expected": 720,
+      "missing": 1,
+      "month": "Nov",
+      "observed": 719
+    },
+    {
+      "expected": 744,
+      "missing": 0,
+      "month": "Dec",
+      "observed": 744
+    }
+  ],
+  "observed_unique_hours": 8758,
+  "offset_hours": -7,
+  "ok": false,
+  "parsed_rows": 8759,
+  "rows": 8759,
+  "samples": [
+    {
+      "code": "duplicate_hour",
+      "detail": "duplicate UTC hour-start instant",
+      "row": 2892,
+      "timestamp": "2025-05-01T10:00:00"
+    },
+    {
+      "code": "missing_hour",
+      "detail": "missing normalized UTC hour",
+      "row": null,
+      "timestamp": "2025-03-09T09:00:00+00:00"
+    },
+    {
+      "code": "missing_hour",
+      "detail": "missing normalized UTC hour",
+      "row": null,
+      "timestamp": "2025-11-02T08:00:00+00:00"
+    }
+  ],
+  "schema": "hourgrid-audit-v1",
+  "source_sha256": "7cd153d28175469eae01e096b9e5dbbc5da8a6c0d2d401b94dcc59603f6d0f8d",
+  "timestamp_column": "timestamp",
+  "value_column": "power_kw",
+  "year": 2025,
+  "zone": null
+}
